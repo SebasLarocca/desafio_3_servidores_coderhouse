@@ -30,7 +30,7 @@ class ProductManager {
             console.log(this.products)
         }
     }
-    
+
     getProductsById = async (id) => {
         let data2 = await fs.promises.readFile(this.path, 'utf-8')
         let filterConsultar = await JSON.parse(data2).find(producto => producto.id == id);
@@ -55,27 +55,9 @@ class ProductManager {
 
 const productManager = new ProductManager
 
-// instancia.getProducts()
-
 productManager.addProduct('Silla', 'Hermosa silla', 200, 'Sin imagen', 'abc123', 25)
 productManager.addProduct('Mesa', 'Una mesa', 200, 'Sin imagen', 'abc123', 25)
 productManager.addProduct('Estantes', 'Con mucho espacio', 200, 'Sin imagen', 'abc123', 25)
 productManager.addProduct('Lamapra', 'Muy luminosa', 200, 'Sin imagen', 'abc123', 25)
-
-
-// instancia.getProducts()
-
-// instancia.getProductsById(0)
-// instancia.getProductsById(4)
-
-// instancia.updateProduct({
-//     "title": "Titulo1",
-//     "descripcion": "Descripción1",
-//     "precio": 1000,
-//     "thumbnail": "bichito",
-//     "code": "1",
-//     "stock": 10,
-//     "id": 0
-// })
 
 module.exports = productManager
